@@ -1,6 +1,6 @@
 # homelab-public
 
-> Architecture and design notes for a fully self-hosted homelab — **4 Proxmox nodes, 50+ LXC containers, not a single paid cloud service.**
+> Architecture and design notes for a fully self-hosted homelab — **4 Proxmox nodes, 62 LXC containers, not a single paid cloud service.**
 
 This repository documents *how* the homelab is built and *why* each component was chosen. No secrets, no internal addresses — just the architecture, the trade-offs, and the reasoning. The infrastructure itself runs privately; this is the public design record.
 
@@ -65,7 +65,7 @@ No trendy stacks. Each tool solves a concrete problem. Here is what was chosen, 
 | **DNS** | TechnitiumDNS | Pi-hole (no DoT), AdGuard Home | HA DNS (AXFR primary/secondary), ~650k blocked domains, strict DoT |
 | **Internal PKI** | step-ca (private ACME) | mkcert (manual), Vault PKI (overkill) | Full internal PKI, zero browser warnings, auto-renewed 90-day certs |
 | **SSO** | Authentik (OIDC + forward-auth) | Keycloak (heavy), Authelia | Single login across heterogeneous services, WebAuthn MFA |
-| **Config mgmt** | Ansible + Semaphore | Puppet/Chef (agents), Terraform | Agentless, idempotent, one-command agent rollout across 30+ CTs |
+| **Config mgmt** | Ansible + Semaphore | Puppet/Chef (agents), Terraform | Agentless, idempotent, one-command agent rollout across 65 hosts |
 | **SIEM** | Wazuh | ELK (no native SIEM), Splunk (commercial) | FIM, CIS compliance, intrusion detection in one product |
 | **IPS** | CrowdSec | Fail2ban (local-only) | Community blocklists, iptables bouncer on Traefik |
 | **Metrics** | VictoriaMetrics | Prometheus (heavier), InfluxDB | Single-binary PromQL TSDB, superior compression, 20+ targets |
@@ -91,4 +91,4 @@ AI is kept where it adds judgment, plain automation where work repeats:
 
 ---
 
-*This is documentation only. The running infrastructure, its configurations, and its secrets are private. Live figures on [pixelium.win](https://pixelium.win) are pushed every 5 minutes from the cluster.*
+*This is documentation only. The running infrastructure, its configurations, and its secrets are private. Live figures on [pixelium.win](https://pixelium.win) are pushed every 15 minutes from the cluster — the [interactive topology map](https://pixelium.win/infrastructure) (73 nodes) is generated straight from the Proxmox API, not hand-drawn.*
