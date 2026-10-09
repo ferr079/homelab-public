@@ -1,6 +1,6 @@
 # homelab-public
 
-> Architecture and design notes for a fully self-hosted homelab — **4 Proxmox nodes, 62 LXC containers, not a single paid cloud service.**
+> Architecture and design notes for a fully self-hosted homelab — **4 Proxmox nodes, 59 LXC containers, not a single paid cloud service.**
 
 This repository documents *how* the homelab is built and *why* each component was chosen. No secrets, no internal addresses — just the architecture, the trade-offs, and the reasoning. The infrastructure itself runs privately; this is the public design record.
 
