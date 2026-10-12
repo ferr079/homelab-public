@@ -62,10 +62,10 @@ No trendy stacks. Each tool solves a concrete problem. Here is what was chosen, 
 |---|---|---|---|
 | **Hypervisor** | Proxmox VE (native LXC) | ESXi (paid), Hyper-V, XCP-ng | Containers boot in 2 s / ~50 MB RAM, integrated PBS, full API |
 | **Reverse proxy** | Traefik + CrowdSec | NPM (UI-only), Caddy | HTTPS by dropping a YAML file, hot-reload, native ACME |
-| **DNS** | TechnitiumDNS | Pi-hole (no DoT), AdGuard Home | HA DNS (AXFR primary/secondary), ~650k blocked domains, strict DoT |
+| **DNS** | TechnitiumDNS | Pi-hole (no DoT), AdGuard Home | HA DNS (AXFR primary/secondary), 2M+ blocked domains, strict DoT |
 | **Internal PKI** | step-ca (private ACME) | mkcert (manual), Vault PKI (overkill) | Full internal PKI, zero browser warnings, auto-renewed 90-day certs |
 | **SSO** | Authentik (OIDC + forward-auth) | Keycloak (heavy), Authelia | Single login across heterogeneous services, WebAuthn MFA |
-| **Config mgmt** | Ansible + Semaphore | Puppet/Chef (agents), Terraform | Agentless, idempotent, one-command agent rollout across 65 hosts |
+| **Config mgmt** | Ansible + Semaphore | Puppet/Chef (agents), Terraform | Agentless, idempotent, one-command agent rollout across 60+ hosts |
 | **SIEM** | Wazuh | ELK (no native SIEM), Splunk (commercial) | FIM, CIS compliance, intrusion detection in one product |
 | **IPS** | CrowdSec | Fail2ban (local-only) | Community blocklists, iptables bouncer on Traefik |
 | **Metrics** | VictoriaMetrics | Prometheus (heavier), InfluxDB | Single-binary PromQL TSDB, superior compression, 20+ targets |
@@ -85,7 +85,7 @@ No trendy stacks. Each tool solves a concrete problem. Here is what was chosen, 
 
 AI is kept where it adds judgment, plain automation where work repeats:
 
-- **Hermes** (NousResearch agent, MiniMax M3) — Telegram correspondent, self-improving, runs doc-reconciliation and tech-watch cron chains
+- **Hermes** (NousResearch agent, MiniMax via LiteLLM) — Telegram correspondent, self-improving, runs doc-reconciliation and tech-watch cron chains
 - **Dagu** — scheduled ops DAGs (backups, audits, metrics push)
 - **Native alerting** — Beszel / Wazuh / CrowdSec → ntfy, no agent middleman
 
